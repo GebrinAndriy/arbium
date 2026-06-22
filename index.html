@@ -510,6 +510,21 @@
     font-weight:600;
     color:var(--mute);
   }
+  .qr-pay{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    margin-top:22px;
+    padding:16px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--r-md);
+  }
+  .qr-pay a{flex-shrink:0;display:block;line-height:0;}
+  .qr-pay img{width:104px;height:104px;border-radius:8px;display:block;}
+  .qr-pay strong{display:block;font-size:0.95rem;color:var(--dark);margin-bottom:4px;}
+  .qr-pay p{font-size:0.85rem;color:var(--mute);}
+  @media (max-width:420px){.qr-pay{flex-direction:column;text-align:center;}}
 
   .bank-card{
     background:var(--gray-light);
@@ -869,12 +884,22 @@
         </div>
         <label class="field-label" for="customAmount">Eigener Betrag</label>
         <input type="number" class="custom-amount" id="customAmount" placeholder="Betrag in € eingeben" min="1">
-        <a href="#PAYONEER_LINK_HERE" target="_blank" rel="noopener" class="btn btn-primary btn-block">Jetzt spenden →</a>
+        <!-- Payoneer-Zahlungslink (derzeit Test-/Einmal-Link — vor Live-Schaltung durch dauerhaften Link ersetzen) -->
+        <a href="https://link.payoneer.com/Token?t=127C0013679B41F699FBADC2D1FDED2E&src=pl" target="_blank" rel="noopener" class="btn btn-primary btn-block">Jetzt spenden →</a>
         <p class="disclaimer">Jede Transaktion ist verschlüsselt. Sie erhalten eine Bestätigung; Spendenquittung verfügbar, sofern rechtlich möglich.</p>
         <div class="badges">
           <span class="badge">PayPal</span>
           <span class="badge">SEPA-Lastschrift</span>
           <span class="badge">Kreditkarte</span>
+        </div>
+        <div class="qr-pay">
+          <a href="https://link.payoneer.com/Token?t=127C0013679B41F699FBADC2D1FDED2E&src=pl" target="_blank" rel="noopener">
+            <img src="img/qr-payoneer.png" alt="QR-Code zur sicheren Spende über Payoneer" width="104" height="104">
+          </a>
+          <div>
+            <strong>Mit dem Smartphone spenden</strong>
+            <p>Scannen Sie den QR-Code und gelangen Sie direkt zur sicheren Payoneer-Zahlung.</p>
+          </div>
         </div>
       </div>
       <div class="bank-card">
