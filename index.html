@@ -3,109 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arbium — Spenden für Drohnen der 102. Brigade</title>
-<meta name="description" content="Arbium sammelt Spenden für Drohnen der 102. Brigade der Territorialverteidigung der Ukraine.">
+<title>Arbium – Spenden für Drohnen der 104. Territorialverteidigung</title>
+<meta name="description" content="Unterstützen Sie mit Arbium die 104. TDF-Brigade der Ukraine: Aufklärungs- und FPV-Drohnen, transparente Berichte, sichere Spenden. Jeder Beitrag zählt.">
+<meta property="og:title" content="Arbium – Spenden für Drohnen der 104. Territorialverteidigung">
+<meta property="og:description" content="Unterstützen Sie mit Arbium die 104. TDF-Brigade der Ukraine: Aufklärungs- und FPV-Drohnen, transparente Berichte, sichere Spenden.">
+<meta property="og:image" content="img/og-image.jpg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Arbium",
+  "url": "https://arbium.org",
+  "description": "Arbium sammelt Spenden für Aufklärungs- und FPV-Drohnen für die 104. Brigade der Territorialverteidigung der Ukraine."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Wie stellen Sie sicher, dass die Drohnen ankommen?","acceptedAnswer":{"@type":"Answer","text":"Wir arbeiten mit verifizierten Logistikpartnern und dokumentieren Übergaben mit Berichten und Bildmaterial, sensibel und sicher."}},
+    {"@type":"Question","name":"Sind Spenden steuerlich absetzbar?","acceptedAnswer":{"@type":"Answer","text":"Abhängig vom Land des Spenders. Wir stellen Belege aus; Details im Bestätigungs-E-Mail."}},
+    {"@type":"Question","name":"Welche Drohnen beschaffen Sie?","acceptedAnswer":{"@type":"Answer","text":"Primär robuste Aufklärungs- und FPV-Modelle mit geprüfter Ersatzteilversorgung. Auswahl richtet sich nach Einsatzbedarf der 104. Brigade."}},
+    {"@type":"Question","name":"Wie berichten Sie über Wirkung?","acceptedAnswer":{"@type":"Answer","text":"Quartalsweise Updates mit Zahlen, Fotos und konkreten Beispielen, ohne operative Risiken."}}
+  ]
+}
+</script>
 <style>
   :root{
-    --blue:#0057B7;
-    --blue-dark:#003d82;
-    --yellow:#FFD700;
-    --dark:#1a1a2e;
-    --text:#1c1c28;
-    --muted:#5a5a6e;
-    --white:#ffffff;
-    --bg-soft:#f5f7fb;
+    --blue:#1F6FEB;
+    --blue-deep:#1857bd;
+    --gold:#FFC300;
+    --dark:#111418;
+    --gray-light:#F3F5F7;
+    --white:#FFFFFF;
+    --body:#3c4148;
+    --mute:#6b7077;
+    --line:#dfe2e6;
+    --r-md:10px;
+    --r-lg:16px;
+    --space-3xl:96px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     font-family:'Inter',Arial,sans-serif;
-    color:var(--text);
+    color:var(--body);
     background:var(--white);
-    line-height:1.6;
+    line-height:1.65;
     overflow-x:hidden;
   }
   img{max-width:100%;display:block;}
   a{text-decoration:none;color:inherit;}
   ul{list-style:none;}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;}
   .container{
     width:100%;
     max-width:1180px;
     margin:0 auto;
     padding:0 24px;
   }
-  section{padding:clamp(56px,8vw,110px) 0;}
-  h2{
-    font-size:clamp(1.8rem,4vw,2.5rem);
-    font-weight:800;
-    margin-bottom:16px;
-    color:var(--text);
+  section{padding:clamp(56px,8vw,var(--space-3xl)) 0;}
+  h1,h2,h3{
+    font-family:'Playfair Display',serif;
+    color:var(--dark);
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:16px;}
+  h3{font-size:1.3rem;margin-bottom:10px;}
+  .eyebrow{
+    display:block;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--blue);
+    margin-bottom:10px;
   }
   .section-sub{
-    color:var(--muted);
+    color:var(--mute);
     font-size:1.05rem;
     margin-bottom:40px;
-    max-width:640px;
+    max-width:620px;
   }
   .center{text-align:center;margin-left:auto;margin-right:auto;}
+  .sr-only{
+    position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);
+  }
+  .skip-link{
+    position:absolute;left:16px;top:-60px;z-index:1100;
+    background:var(--blue);color:var(--white);
+    padding:10px 18px;border-radius:var(--r-md);font-weight:600;font-size:0.9rem;
+    transition:top .2s ease;
+  }
+  .skip-link:focus{top:12px;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;
+    padding:15px 30px;
+    border-radius:var(--r-md);
+    font-weight:600;
+    font-size:0.98rem;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .btn-primary{background:var(--blue);color:var(--white);}
+  .btn-primary:hover{background:var(--blue-deep);}
+  .btn-secondary{background:var(--gold);color:var(--dark);}
+  .btn-secondary:hover{background:#e6af00;}
+  .btn-outline{background:transparent;border-color:var(--dark);color:var(--dark);}
+  .btn-outline:hover{background:var(--dark);color:var(--white);}
+  .btn-outline-light{background:transparent;border-color:rgba(255,255,255,0.5);color:var(--white);}
+  .btn-outline-light:hover{background:rgba(255,255,255,0.12);}
+  .btn-block{width:100%;text-align:center;}
 
   /* ---------- Logo ---------- */
   .logo{
     display:flex;
     align-items:center;
-    gap:10px;
-    font-weight:800;
-    font-size:1.4rem;
-    letter-spacing:-0.02em;
+    gap:9px;
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:1.35rem;
     color:var(--blue);
   }
-  .logo svg{flex-shrink:0;}
-  .logo .flag{font-size:1.1rem;margin-left:2px;}
+  .logo .flag{font-size:0.95rem;opacity:0.85;}
   .logo.light{color:var(--white);}
 
   /* ---------- Navbar ---------- */
   .navbar{
     position:sticky;
     top:0;
-    left:0;
-    width:100%;
     z-index:1000;
     background:rgba(255,255,255,0.97);
-    backdrop-filter:blur(8px);
-    transition:box-shadow .25s ease, padding .25s ease;
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease, box-shadow .25s ease;
   }
-  .navbar.scrolled{box-shadow:0 4px 18px rgba(0,0,0,0.08);}
+  .navbar.scrolled{border-bottom-color:var(--line);box-shadow:0 2px 14px rgba(0,0,0,0.04);}
   .nav-inner{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:16px 24px;
+    padding:14px 24px;
     max-width:1180px;
     margin:0 auto;
   }
   .nav-links{
     display:flex;
-    gap:32px;
+    gap:22px;
     align-items:center;
+    flex-wrap:wrap;
   }
   .nav-links a{
-    font-weight:600;
-    font-size:0.96rem;
-    color:var(--text);
-    position:relative;
-    transition:color .2s ease;
+    font-weight:500;
+    font-size:0.88rem;
+    color:var(--dark);
   }
   .nav-links a:hover{color:var(--blue);}
   .nav-cta{
-    background:var(--yellow);
-    color:var(--text)!important;
-    padding:10px 20px;
-    border-radius:8px;
-    font-weight:700;
+    background:var(--blue);
+    color:var(--white)!important;
+    padding:9px 18px;
+    border-radius:var(--r-md);
+    font-weight:600;
   }
+  .nav-cta:hover{background:var(--blue-deep);}
   .hamburger{
     display:none;
     flex-direction:column;
@@ -115,30 +185,16 @@
     border:none;
     padding:6px;
   }
-  .hamburger span{
-    width:26px;
-    height:3px;
-    background:var(--text);
-    border-radius:2px;
-    transition:.3s;
-  }
-  .hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .hamburger span{width:24px;height:2px;background:var(--dark);transition:.3s;}
+  .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .hamburger.active span:nth-child(2){opacity:0;}
-  .hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-
-  @media (max-width:860px){
+  .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  @media (max-width:1024px){
     .nav-links{
-      position:fixed;
-      top:0;
-      right:-100%;
-      width:min(78vw,320px);
-      height:100vh;
-      background:var(--white);
-      flex-direction:column;
-      justify-content:center;
-      gap:36px;
-      transition:right .3s ease;
-      box-shadow:-6px 0 24px rgba(0,0,0,0.12);
+      position:fixed;top:0;right:-100%;width:min(82vw,340px);height:100vh;
+      background:var(--white);flex-direction:column;justify-content:center;
+      gap:26px;transition:right .3s ease;box-shadow:-8px 0 28px rgba(0,0,0,0.1);
+      padding:40px 32px;align-items:flex-start;overflow-y:auto;
     }
     .nav-links.open{right:0;}
     .hamburger{display:flex;}
@@ -146,517 +202,838 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    background:linear-gradient(160deg, var(--dark) 45%, #1a2230 100%);
     color:var(--white);
-    background:
-      linear-gradient(180deg, rgba(10,15,30,0.65), rgba(10,15,30,0.85)),
-      url('https://images.unsplash.com/photo-1585420291663-3b58c274e3ff?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+    padding:clamp(64px,9vw,120px) 0 64px;
   }
-  .hero-content{
-    max-width:780px;
-    padding:0 24px;
-  }
-  .hero h1{
-    font-size:clamp(2rem,5vw,3.5rem);
-    font-weight:800;
-    line-height:1.2;
-    margin-bottom:20px;
-    text-shadow:0 2px 18px rgba(0,0,0,0.4);
-  }
-  .hero p{
-    font-size:clamp(1rem,2vw,1.25rem);
-    color:#e7e9f5;
-    margin-bottom:36px;
-  }
-  .hero-buttons{
-    display:flex;
-    gap:18px;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-  .btn{
-    display:inline-block;
-    padding:16px 32px;
-    border-radius:10px;
-    font-weight:700;
-    font-size:1rem;
-    cursor:pointer;
-    border:2px solid transparent;
-    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{
-    background:var(--yellow);
-    color:var(--text);
-    box-shadow:0 8px 24px rgba(255,215,0,0.25);
-  }
-  .btn-primary:hover{box-shadow:0 10px 28px rgba(255,215,0,0.4);}
-  .btn-outline{
-    background:transparent;
-    border-color:var(--white);
-    color:var(--white);
-  }
-  .btn-outline:hover{background:rgba(255,255,255,0.12);}
-  .btn-block{width:100%;text-align:center;}
-
-  /* ---------- Trust bar ---------- */
-  .trust-bar{
-    background:var(--blue);
-    color:var(--white);
-    padding:18px 0;
-  }
-  .trust-bar .container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:32px;
-    text-align:center;
-    font-weight:600;
-    font-size:0.95rem;
-  }
-
-  /* ---------- About ---------- */
-  .about-grid{
+  .hero-grid{
     display:grid;
     grid-template-columns:1.1fr 0.9fr;
     gap:56px;
     align-items:center;
   }
-  .about-grid img{
-    border-radius:16px;
-    box-shadow:0 16px 40px rgba(0,0,0,0.14);
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(2.1rem,4.6vw,3.4rem);
+    line-height:1.2;
+    margin-bottom:20px;
   }
-  .about-grid p{
-    color:var(--muted);
-    margin-bottom:18px;
-    font-size:1.05rem;
+  .hero p{
+    font-size:clamp(1rem,1.6vw,1.15rem);
+    color:#c7ccd4;
+    margin-bottom:32px;
+    max-width:520px;
   }
-  .about-grid p strong{color:var(--text);}
-  @media (max-width:880px){
-    .about-grid{grid-template-columns:1fr;}
-    .about-grid .img-wrap{order:-1;}
+  .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-photo{
+    border-radius:var(--r-lg);
+    overflow:hidden;
+    aspect-ratio:4/5;
   }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(8%);}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}.hero-photo{order:-1;max-width:420px;margin:0 auto;}}
+
+  .progress-box{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:var(--r-lg);
+    padding:24px;
+    max-width:520px;
+  }
+  .progress-box .top-row{display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:12px;color:#cfd3da;}
+  .progress-box .top-row strong{color:var(--gold);font-size:1.1rem;}
+  .progress-track{width:100%;height:10px;background:rgba(255,255,255,0.15);border-radius:20px;overflow:hidden;margin-bottom:10px;}
+  .progress-fill{height:100%;width:0%;background:var(--gold);border-radius:20px;transition:width 1.6s ease;}
+  .progress-foot{font-size:0.82rem;color:#9aa0a8;}
+
+  .trust-strip{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    font-size:0.82rem;
+    color:#9aa0a8;
+  }
+  .trust-strip span{display:flex;align-items:center;gap:7px;}
+
+  /* ---------- Generic icon ---------- */
+  .icon-svg{width:22px;height:22px;flex-shrink:0;}
+
+  /* ---------- Photo placeholders (self-contained, DSGVO-freundlich) ---------- */
+  .photo-ph{
+    position:relative;
+    width:100%;
+    border-radius:var(--r-lg);
+    overflow:hidden;
+    background:
+      linear-gradient(135deg, #e9edf1 0%, #dfe4ea 100%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:#9aa1aa;
+    text-align:center;
+    padding:20px;
+  }
+  .photo-ph::after{
+    content:"";
+    position:absolute;inset:0;
+    background-image:repeating-linear-gradient(45deg, rgba(0,0,0,0.012) 0 12px, transparent 12px 24px);
+    pointer-events:none;
+  }
+  .photo-ph svg{width:34px;height:34px;opacity:0.55;}
+  .photo-ph span{font-size:0.78rem;font-weight:600;letter-spacing:0.02em;}
+  .photo-ph.dark{background:linear-gradient(135deg,#1b212b,#222b38);color:#7a828d;}
+  .photo-ph.team{background:linear-gradient(135deg,#e4e7ec,#d6dbe2);aspect-ratio:1/1;}
 
   /* ---------- Why drones ---------- */
-  .cards-grid{
+  .reasons-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:28px;
+    margin-bottom:48px;
   }
-  .card{
-    background:var(--white);
-    border-radius:14px;
-    padding:32px 26px;
-    border-top:5px solid var(--blue);
-    box-shadow:0 10px 30px rgba(0,0,0,0.06);
-    transition:transform .25s ease, box-shadow .25s ease;
+  .reason-card{
+    background:var(--gray-light);
+    border-radius:var(--r-lg);
+    padding:30px 26px;
   }
-  .card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 16px 40px rgba(0,0,0,0.1);
+  .reason-card .icon-wrap{
+    width:46px;height:46px;border-radius:50%;
+    background:var(--white);display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
   }
-  .card .icon{font-size:2.4rem;margin-bottom:16px;display:block;}
-  .card h3{font-size:1.2rem;margin-bottom:10px;font-weight:700;}
-  .card p{color:var(--muted);font-size:0.97rem;}
-  @media (max-width:860px){.cards-grid{grid-template-columns:1fr;}}
+  .reason-card p{color:var(--mute);font-size:0.97rem;}
+  @media (max-width:860px){.reasons-grid{grid-template-columns:1fr;}}
 
-  /* ---------- Progress ---------- */
-  .progress-section{
-    background:var(--blue);
-    color:var(--white);
+  .quote-box{
+    border-left:4px solid var(--gold);
+    background:var(--gray-light);
+    padding:28px 32px;
+    border-radius:0 var(--r-md) var(--r-md) 0;
+    max-width:760px;
   }
-  .progress-section h2,.progress-section .section-sub{color:var(--white);}
-  .progress-track{
-    width:100%;
-    height:22px;
-    background:rgba(255,255,255,0.2);
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:36px;
+  .quote-box p{
+    font-family:'Playfair Display',serif;
+    font-size:1.25rem;
+    font-style:italic;
+    color:var(--dark);
+    margin-bottom:12px;
   }
-  .progress-fill{
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,var(--yellow),#ffe666);
-    border-radius:20px;
-    animation:fillBar 1.8s ease forwards;
-    animation-delay:.3s;
-    box-shadow:0 0 14px rgba(255,215,0,0.6);
-  }
-  @keyframes fillBar{
-    from{width:0%;}
-    to{width:35%;}
-  }
-  .stats-row{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    gap:24px;
-    text-align:center;
-  }
-  .stats-row .stat{flex:1;min-width:140px;}
-  .stats-row .stat strong{
-    display:block;
-    font-size:clamp(1.5rem,3vw,2.1rem);
-    font-weight:800;
-    color:var(--yellow);
-  }
-  .stats-row .stat span{font-size:0.92rem;color:#dbe6fb;}
+  .quote-box cite{font-size:0.88rem;color:var(--mute);font-style:normal;}
 
-  /* ---------- Donation ---------- */
-  .donate-box{
-    background:var(--bg-soft);
-    border-radius:20px;
-    padding:clamp(28px,5vw,52px);
-    max-width:640px;
-    margin:0 auto;
-    box-shadow:0 14px 40px rgba(0,0,0,0.06);
-  }
-  .amount-grid{
+  /* ---------- Brigade section ---------- */
+  .brigade-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
-    margin-bottom:20px;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
   }
-  .amount-btn{
-    padding:16px 0;
-    border-radius:10px;
-    border:2px solid #d8dee9;
-    background:var(--white);
-    font-weight:700;
-    font-size:1.05rem;
-    cursor:pointer;
-    transition:.2s;
-  }
-  .amount-btn:hover{border-color:var(--blue);}
-  .amount-btn.selected{
-    border-color:var(--blue);
-    background:var(--blue);
-    color:var(--white);
-  }
-  .custom-amount{
-    width:100%;
-    padding:14px 16px;
-    border-radius:10px;
-    border:2px solid #d8dee9;
-    font-size:1rem;
-    margin-bottom:24px;
-    font-family:inherit;
-  }
-  .custom-amount:focus{outline:none;border-color:var(--blue);}
-  .donate-cta{
-    width:100%;
-    text-align:center;
-    font-size:1.1rem;
-    padding:18px;
-  }
-  .disclaimer{
-    text-align:center;
-    color:var(--muted);
-    font-size:0.88rem;
-    margin-top:14px;
-  }
-  .badges{
+  .brigade-grid img{border-radius:var(--r-lg);filter:grayscale(10%);}
+  .brigade-grid p{color:var(--mute);margin-bottom:16px;font-size:1.02rem;}
+  .fact-list{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
+  .fact-list li{
     display:flex;
-    justify-content:center;
-    gap:14px;
-    margin-top:26px;
-    flex-wrap:wrap;
+    gap:10px;
+    font-size:0.95rem;
+    color:var(--body);
+    align-items:flex-start;
   }
-  .badge{
-    background:var(--white);
-    border:1px solid #d8dee9;
-    border-radius:8px;
-    padding:8px 16px;
-    font-size:0.85rem;
-    font-weight:600;
-    color:var(--muted);
-  }
+  .fact-list li::before{content:"—";color:var(--blue);font-weight:700;flex-shrink:0;}
+  @media (max-width:880px){.brigade-grid{grid-template-columns:1fr;}}
 
-  /* ---------- FAQ ---------- */
-  .faq-item{
-    border-bottom:1px solid #e3e7f0;
+  /* ---------- Funding list ---------- */
+  .funding-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-bottom:24px;
   }
-  .faq-question{
-    width:100%;
-    text-align:left;
-    background:none;
-    border:none;
-    padding:22px 0;
-    font-size:1.05rem;
-    font-weight:700;
-    cursor:pointer;
+  .funding-item{
+    display:flex;
+    gap:14px;
+    background:var(--gray-light);
+    border-radius:var(--r-md);
+    padding:20px;
+    align-items:flex-start;
+  }
+  .funding-item .icon-wrap{
+    width:38px;height:38px;border-radius:50%;background:var(--white);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .funding-item p{font-size:0.95rem;color:var(--body);}
+  .transparency-note{
+    background:#eaf2ff;
+    border-radius:var(--r-md);
+    padding:18px 22px;
+    font-size:0.92rem;
+    color:var(--blue-deep);
+    max-width:680px;
+  }
+  @media (max-width:760px){.funding-list{grid-template-columns:1fr;}}
+
+  /* ---------- Impact ---------- */
+  .impact-section{background:var(--dark);color:var(--white);}
+  .impact-section .eyebrow{color:var(--gold);}
+  .impact-section h2{color:var(--white);}
+  .impact-section .section-sub{color:#aeb3bb;}
+  .stats-row{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:44px;}
+  .stat-tile{
+    flex:1;min-width:160px;
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:var(--r-md);
+    padding:22px;
+  }
+  .stat-tile strong{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);margin-bottom:4px;}
+  .stat-tile span{font-size:0.86rem;color:#aeb3bb;}
+  .report-teaser{
+    background:rgba(255,255,255,0.06);
+    border-radius:var(--r-md);
+    padding:24px 28px;
+    margin-bottom:40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    color:var(--text);
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .report-teaser p{color:#d3d6db;max-width:600px;}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+  .gallery-grid img{border-radius:var(--r-md);aspect-ratio:1/1;object-fit:cover;filter:grayscale(10%);}
+  @media (max-width:760px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Donation ---------- */
+  .donate-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:48px;
+    align-items:start;
+  }
+  .donate-toggle{
+    display:flex;
+    background:var(--gray-light);
+    border-radius:var(--r-md);
+    padding:4px;
+    margin-bottom:22px;
+    max-width:320px;
+  }
+  .donate-toggle button{
+    flex:1;
+    border:none;
+    background:none;
+    padding:11px 0;
+    font-weight:600;
+    font-size:0.92rem;
+    border-radius:8px;
+    cursor:pointer;
+    color:var(--mute);
+  }
+  .donate-toggle button.active{background:var(--white);color:var(--dark);box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+  .amount-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:18px;
+  }
+  .amount-btn{
+    padding:15px 0;
+    border-radius:var(--r-md);
+    border:1.5px solid var(--line);
+    background:var(--white);
+    font-weight:700;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.2s;
+    color:var(--dark);
+  }
+  .amount-btn:hover{border-color:var(--blue);}
+  .amount-btn.selected{border-color:var(--blue);background:var(--blue);color:var(--white);}
+  .custom-amount{
+    width:100%;
+    padding:13px 16px;
+    border-radius:var(--r-md);
+    border:1.5px solid var(--line);
+    font-size:1rem;
+    margin-bottom:22px;
     font-family:inherit;
   }
-  .faq-question .plus{
-    font-size:1.4rem;
-    color:var(--blue);
-    transition:transform .25s ease;
-    flex-shrink:0;
-    margin-left:16px;
+  .custom-amount:focus{outline:none;border-color:var(--blue);}
+  label.field-label{font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:6px;display:block;}
+  .disclaimer{color:var(--mute);font-size:0.86rem;margin-top:14px;}
+  .badges{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+  .badge{
+    background:var(--gray-light);
+    border-radius:20px;
+    padding:7px 14px;
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--mute);
   }
+
+  .bank-card{
+    background:var(--gray-light);
+    border-radius:var(--r-lg);
+    padding:30px;
+  }
+  .bank-card dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:18px 0;}
+  .bank-card dt{font-size:0.82rem;color:var(--mute);font-weight:600;}
+  .bank-card dd{font-size:0.95rem;color:var(--dark);font-weight:600;}
+  .pay-methods{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .pay-methods span{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:8px 14px;
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--mute);
+  }
+  @media (max-width:900px){.donate-grid{grid-template-columns:1fr;}}
+
+  /* ---------- For business ---------- */
+  .business-section{background:var(--gray-light);}
+  .business-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:36px;}
+  .business-card{background:var(--white);border-radius:var(--r-lg);padding:28px;}
+  .business-card p{color:var(--mute);font-size:0.95rem;}
+  @media (max-width:860px){.business-grid{grid-template-columns:1fr;}}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item:first-child{border-top:1px solid var(--line);}
+  .faq-question{
+    width:100%;text-align:left;background:none;border:none;padding:20px 0;
+    font-size:1.02rem;font-weight:600;cursor:pointer;display:flex;
+    justify-content:space-between;align-items:center;color:var(--dark);font-family:inherit;
+  }
+  .faq-question .plus{font-size:1.3rem;font-weight:400;color:var(--blue);transition:transform .25s ease;margin-left:16px;}
   .faq-item.open .faq-question .plus{transform:rotate(45deg);}
-  .faq-answer{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .3s ease;
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-answer p{color:var(--mute);padding-bottom:20px;font-size:0.96rem;max-width:680px;}
+
+  /* ---------- About / team ---------- */
+  .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:32px 0 48px;}
+  .value-pill{background:var(--gray-light);border-radius:var(--r-md);padding:18px;text-align:center;font-weight:600;font-size:0.92rem;color:var(--dark);}
+  @media (max-width:760px){.values-grid{grid-template-columns:repeat(2,1fr);}}
+
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .team-card img{border-radius:var(--r-md);aspect-ratio:1/1;object-fit:cover;filter:grayscale(100%);margin-bottom:14px;}
+  .team-card h3{font-size:1.05rem;margin-bottom:4px;}
+  .team-card .role{font-size:0.85rem;color:var(--blue);font-weight:600;margin-bottom:8px;}
+  .team-card p{font-size:0.92rem;color:var(--mute);}
+  @media (max-width:860px){.team-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.team-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  .contact-form{display:flex;flex-direction:column;gap:16px;}
+  .contact-form input,.contact-form textarea{
+    padding:13px 16px;border-radius:var(--r-md);border:1.5px solid var(--line);
+    font-family:inherit;font-size:0.95rem;
   }
-  .faq-answer p{
-    color:var(--muted);
-    padding-bottom:22px;
-    font-size:0.98rem;
+  .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--blue);}
+  .contact-info p{color:var(--mute);margin-bottom:10px;font-size:0.97rem;}
+  .contact-info a{color:var(--blue);font-weight:600;}
+  .social-row{display:flex;gap:10px;margin-top:18px;}
+  .social-row a{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .social-row a:hover{background:var(--gray-light);}
+  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Legal (Impressum/Datenschutz placeholders) ---------- */
+  .legal-section{background:var(--gray-light);}
+  .legal-block{margin-bottom:36px;}
+  .legal-block h3{margin-bottom:10px;}
+  .legal-block p{color:var(--mute);font-size:0.93rem;margin-bottom:8px;}
+  .legal-flag{
+    display:inline-block;background:#fff3cd;color:#7a5a00;font-size:0.76rem;font-weight:700;
+    padding:3px 9px;border-radius:6px;margin-left:6px;vertical-align:middle;
   }
 
   /* ---------- Footer ---------- */
-  footer{
-    background:var(--dark);
-    color:#cfd2e6;
-    padding:60px 0 0;
-  }
-  .footer-grid{
-    display:grid;
-    grid-template-columns:1.2fr 1fr 1fr;
-    gap:40px;
-    padding-bottom:40px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-  }
-  .footer-grid p{margin-top:14px;font-size:0.92rem;color:#aeb2cc;}
-  .footer-grid h4{
-    color:var(--white);
-    font-size:1rem;
-    margin-bottom:16px;
-    font-weight:700;
-  }
-  .social-icons{display:flex;gap:14px;}
-  .social-icons a{
-    width:42px;height:42px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.08);
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.2rem;
-    transition:background .2s ease;
-  }
-  .social-icons a:hover{background:var(--yellow);color:var(--dark);}
-  .footer-note{display:flex;align-items:center;gap:10px;font-size:0.95rem;color:var(--white);}
-  .footer-bottom{
-    text-align:center;
-    padding:22px 0;
-    font-size:0.85rem;
-    color:#8d90ab;
-  }
-  @media (max-width:800px){
-    .footer-grid{grid-template-columns:1fr;text-align:left;}
-  }
+  footer{background:var(--dark);color:#a7acb4;padding:56px 0 0;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .footer-grid p{margin-top:12px;font-size:0.88rem;}
+  .footer-grid h4{color:var(--white);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px;font-weight:600;}
+  .footer-grid ul{display:flex;flex-direction:column;gap:10px;}
+  .footer-grid ul a{font-size:0.88rem;}
+  .footer-grid ul a:hover{color:var(--white);}
+  .footer-bottom{text-align:center;padding:20px 0;font-size:0.8rem;color:#6c717a;}
+  @media (max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
+<a href="#start" class="skip-link">Zum Inhalt springen</a>
+
 <!-- ===================== NAVBAR ===================== -->
 <header class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="#" class="logo">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="17" cy="17" r="17" fill="#0057B7"/>
-        <path d="M17 6 L24 17 L17 28 L10 17 Z" fill="#FFD700"/>
-        <circle cx="17" cy="17" r="3" fill="#0057B7"/>
+    <a href="#start" class="logo">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="26" height="26" rx="7" fill="#1F6FEB"/>
+        <path d="M13 6 L17.5 18 H14.6 L13 13.8 L11.4 18 H8.5 Z" fill="#FFC300"/>
       </svg>
       Arbium <span class="flag">🇺🇦</span>
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#uber-uns">Über uns</a></li>
-      <li><a href="#warum-drohnen">Warum Drohnen?</a></li>
-      <li><a href="#spenden">Spenden</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-      <li><a href="#spenden" class="nav-cta">Jetzt Spenden</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <nav aria-label="Hauptnavigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#start">Start</a></li>
+        <li><a href="#warum-drohnen">Warum Drohnen?</a></li>
+        <li><a href="#brigade">Unsere Brigade</a></li>
+        <li><a href="#wirkung">Wirkung &amp; Berichte</a></li>
+        <li><a href="#spenden">So spenden</a></li>
+        <li><a href="#unternehmen">Für Unternehmen</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#ueber-uns">Über Arbium</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#spenden" class="nav-cta">Jetzt spenden</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <!-- ===================== HERO ===================== -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Helfen Sie der Ukraine sich zu verteidigen</h1>
-    <p>Arbium sammelt Spenden für Drohnen der 102. Brigade der Territorialverteidigung</p>
-    <div class="hero-buttons">
-      <a href="#spenden" class="btn btn-primary">Jetzt Spenden</a>
-      <a href="#uber-uns" class="btn btn-outline">Mehr erfahren</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TRUST BAR ===================== -->
-<div class="trust-bar">
+<section class="hero" id="start">
   <div class="container">
-    <span>🔒 Sichere Überweisung</span>
-    <span>🇩🇪 Für deutsche Spender</span>
-    <span>✅ 100% für Drohnen</span>
-  </div>
-</div>
-
-<!-- ===================== ABOUT ===================== -->
-<section id="uber-uns">
-  <div class="container">
-    <h2>Wer sind wir?</h2>
-    <div class="about-grid">
+    <div class="hero-grid">
       <div>
-        <p><strong>Arbium ist eine registrierte gemeinnützige Organisation</strong>, die sich der Unterstützung der ukrainischen Armee verschrieben hat. Wir sammeln Spenden von europäischen Bürgern und Unternehmen, um militärische Ausrüstung für jene zu beschaffen, die unser Land verteidigen.</p>
-        <p>Seit Beginn der umfassenden Invasion Russlands kämpfen ukrainische Soldatinnen und Soldaten jeden Tag um das Überleben ihrer Heimat. Viele Einheiten, wie die 102. Brigade der Territorialverteidigung, benötigen dringend moderne Aufklärungs- und Kampfdrohnen, um Menschenleben zu schützen.</p>
-        <p>Mit Ihrer Spende leisten Sie einen direkten, messbaren Beitrag — jeder Euro fließt in den Kauf von Drohnen, die heute auf dem Schlachtfeld gebraucht werden.</p>
+        <h1>Gemeinsam handeln: Drohnen retten Leben.</h1>
+        <p>Arbium sammelt Spenden für Aufklärungs- und FPV-Drohnen für die 104. Brigade der Territorialverteidigung der Ukraine. Jeder Beitrag verbessert Schutz, Aufklärung und Reaktionszeit an der Front.</p>
+        <div class="hero-buttons">
+          <a href="#spenden" class="btn btn-primary">Jetzt spenden</a>
+          <a href="#spenden" class="btn btn-outline-light">Monatlich unterstützen</a>
+        </div>
+        <div class="progress-box" role="group" aria-label="Spendenfortschritt">
+          <div class="top-row">
+            <span>Ziel: 120.000 €</span>
+            <strong id="progressAmount">0 €</strong>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-foot">Bereits erreicht von 284 Unterstützenden</div>
+        </div>
+        <div class="trust-strip">
+          <span>🔒 SSL-verschlüsselt</span>
+          <span>✅ Geprüfte Partnerschaften</span>
+          <span>📄 Spendenquittung verfügbar</span>
+        </div>
       </div>
-      <div class="img-wrap">
-        <img src="https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?auto=format&fit=crop&w=900&q=80" alt="Ukrainische Soldaten">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WHY DRONES ===================== -->
-<section id="warum-drohnen" style="background:var(--bg-soft);">
-  <div class="container">
-    <h2>Warum Drohnen?</h2>
-    <p class="section-sub">Drohnen retten Leben und entscheiden über den Ausgang moderner Gefechte. Sie sind eines der wichtigsten Werkzeuge der ukrainischen Verteidigung.</p>
-    <div class="cards-grid">
-      <div class="card">
-        <span class="icon">🎯</span>
-        <h3>Präzise Aufklärung</h3>
-        <p>Drohnen ermöglichen es, feindliche Positionen frühzeitig zu erkennen und gezielt zu reagieren.</p>
-      </div>
-      <div class="card">
-        <span class="icon">🛡️</span>
-        <h3>Schutz der Soldaten</h3>
-        <p>Weniger Risiko für das Leben unserer Verteidiger durch Aufklärung aus sicherer Distanz.</p>
-      </div>
-      <div class="card">
-        <span class="icon">⚡</span>
-        <h3>Sofortige Wirkung</h3>
-        <p>Jede Spende kauft direkt Ausrüstung — schnell, transparent und ohne Umwege.</p>
+      <div class="photo-ph dark" style="aspect-ratio:4/5;" role="img" aria-label="Platzhalter: Freiwillige bei der technischen Übergabe von Ausrüstung, dokumentarische Aufnahme ohne identifizierende Details">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+        <span>Dokumentarisches Foto folgt</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== PROGRESS ===================== -->
-<section class="progress-section">
+<!-- ===================== WARUM DROHNEN ===================== -->
+<section id="warum-drohnen">
   <div class="container">
-    <h2>Unser Spendenziel</h2>
-    <p class="section-sub">Gemeinsam erreichen wir 50.000 € für Drohnen der 102. Brigade.</p>
-    <div class="progress-track">
-      <div class="progress-fill"></div>
+    <span class="eyebrow">Der Bedarf</span>
+    <h2>Präzision, Schutz, schnellere Hilfe.</h2>
+    <p class="section-sub">Drohnen verändern, wie schnell und sicher Hilfe an der Front ankommt. Drei kurze Gründe, warum Ihre Spende hier wirkt.</p>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Aufklärung</h3>
+        <p>Drohnen liefern ein aktuelles Lagebild und verhindern Blindflüge.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.7" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6z"/></svg>
+        </div>
+        <h3>Sicherheit</h3>
+        <p>Früherkennung reduziert Risiken für Einsatzkräfte und Zivilisten.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.7" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+        </div>
+        <h3>Effizienz</h3>
+        <p>Gezielte Unterstützung spart Zeit, Material und Leben.</p>
+      </div>
     </div>
+    <blockquote class="quote-box">
+      <p>„Die Drohnen geben uns Augen, wenn Sicht und Zeit fehlen. Sie haben schon Leben gerettet.“</p>
+      <cite>— Freiwilliger Ausbilder, 104. Brigade</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===================== UNSERE BRIGADE ===================== -->
+<section id="brigade" style="background:var(--gray-light);">
+  <div class="container">
+    <span class="eyebrow">Unsere Brigade</span>
+    <h2>Die 104. TDF-Brigade</h2>
+    <div class="brigade-grid">
+      <div>
+        <p>Die 104. Brigade der Territorialverteidigung schützt Menschen, Infrastruktur und Versorgungswege. Wir unterstützen speziell Aufklärungsteams und FPV-Einheiten mit robusten, leicht wartbaren Systemen.</p>
+        <p>Unser Beitrag konzentriert sich auf Ausrüstung, die unmittelbar Leben schützt – inklusive Schulung und Wartung, damit jedes System lange einsatzfähig bleibt.</p>
+        <ul class="fact-list">
+          <li>Einsatzgebiet: Ostukraine (ohne genaue Ortsangaben aus Sicherheitsgründen)</li>
+          <li>Anforderungen: Reichweite, Kameraqualität, verlässliche Ersatzteilversorgung</li>
+          <li>Schulungen: Bedienung, Wartung, taktischer Einsatz</li>
+        </ul>
+      </div>
+      <div class="photo-ph" style="aspect-ratio:4/3;" role="img" aria-label="Platzhalter: Team bei der technischen Prüfung von Geräten in einem Schulungsraum, ohne sensible Details">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+        <span>Foto: Technik-Check folgt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WAS FINANZIEREN WIR ===================== -->
+<section id="finanzieren">
+  <div class="container">
+    <span class="eyebrow">Mittelverwendung</span>
+    <h2>Was finanzieren wir?</h2>
+    <p class="section-sub">Jeder gesammelte Euro fließt in konkrete, dokumentierte Beschaffungen.</p>
+    <div class="funding-list">
+      <div class="funding-item">
+        <div class="icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <p>Aufklärungsdrohnen mit 4K-Stabilisierung, erhöhte Flugzeit, Ersatzakkus.</p>
+      </div>
+      <div class="funding-item">
+        <div class="icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.8" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <p>FPV-Drohnen-Kits inklusive Ersatzteilen und Funkschutz.</p>
+      </div>
+      <div class="funding-item">
+        <div class="icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.8" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.5 5.5L4 17v3h3l5.2-5.2a4 4 0 0 0 5.5-5.5l-2.6 2.6-2-2z"/></svg></div>
+        <p>Schulungs- und Wartungssets: Werkzeuge, Propeller, Ladegeräte.</p>
+      </div>
+      <div class="funding-item">
+        <div class="icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F6FEB" stroke-width="1.8" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+        <p>Transportkoffer, windfeste Antennen, zusätzliche Controller.</p>
+      </div>
+    </div>
+    <p class="transparency-note">Beschaffung über verifizierte Händler; dokumentierte Übergaben und Berichte.</p>
+  </div>
+</section>
+
+<!-- ===================== WIRKUNG & BERICHTE ===================== -->
+<section class="impact-section" id="wirkung">
+  <div class="container">
+    <span class="eyebrow">Transparenz</span>
+    <h2>Wirkung &amp; Berichte</h2>
+    <p class="section-sub">Ihre Wirkung in Zahlen – Quartalsberichte, Fotos, klare Kennwerte. Transparent und sicherheitsbewusst.</p>
     <div class="stats-row">
-      <div class="stat">
-        <strong>17.500 €</strong>
-        <span>gesammelt</span>
+      <div class="stat-tile">
+        <strong id="statDrones">0</strong>
+        <span>Beschaffte Drohnen</span>
       </div>
-      <div class="stat">
-        <strong>284</strong>
-        <span>Spender</span>
+      <div class="stat-tile">
+        <strong id="statOperators">0</strong>
+        <span>Trainierte Bediener</span>
       </div>
-      <div class="stat">
-        <strong>50.000 €</strong>
-        <span>Ziel</span>
+      <div class="stat-tile">
+        <strong id="statHours">0</strong>
+        <span>Eingesparte Stunden dank Aufklärung (Schätzung)</span>
+      </div>
+    </div>
+    <div class="report-teaser">
+      <p><strong>Q2-Update:</strong> 12 Einheiten ausgeliefert, 3 Teams voll ausgerüstet.</p>
+      <a href="#" class="btn btn-outline-light">Bericht lesen</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="photo-ph dark" style="aspect-ratio:1/1;" role="img" aria-label="Platzhalter: Übergabe von Ausrüstung in Transportkisten, dokumentarisch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+        <span>Übergabe</span>
+      </div>
+      <div class="photo-ph dark" style="aspect-ratio:1/1;" role="img" aria-label="Platzhalter: Verpacktes technisches Equipment vor dem Versand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+        <span>Versand</span>
+      </div>
+      <div class="photo-ph dark" style="aspect-ratio:1/1;" role="img" aria-label="Platzhalter: Schulungsraum mit technischem Gerät auf einem Tisch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+        <span>Schulung</span>
+      </div>
+      <div class="photo-ph dark" style="aspect-ratio:1/1;" role="img" aria-label="Platzhalter: Technischer Check eines Geräts durch zwei Personen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+        <span>Technik-Check</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== DONATION ===================== -->
+<!-- ===================== SO SPENDEN ===================== -->
 <section id="spenden">
   <div class="container">
-    <h2 class="center">Jetzt Spenden</h2>
-    <p class="section-sub center">Ihre Spende geht direkt an die 102. Brigade</p>
-    <div class="donate-box">
-      <div class="amount-grid">
-        <button class="amount-btn" data-amount="25">25 €</button>
-        <button class="amount-btn" data-amount="50">50 €</button>
-        <button class="amount-btn" data-amount="100">100 €</button>
+    <span class="eyebrow">Mitmachen</span>
+    <h2>Ihre Unterstützung – schnell und sicher.</h2>
+    <p class="section-sub">Einmalig oder monatlich – sicher per Überweisung, Karte, PayPal oder SEPA.</p>
+    <div class="donate-grid">
+      <div>
+        <div class="donate-toggle" role="group" aria-label="Spendenart wählen">
+          <button type="button" class="active" id="toggleOnce">Einmalspende</button>
+          <button type="button" id="toggleMonthly">Monatliche Spende</button>
+        </div>
+        <span class="field-label">Betrag wählen</span>
+        <div class="amount-grid" id="amountGrid">
+          <button class="amount-btn" data-amount="25">25 €</button>
+          <button class="amount-btn" data-amount="50">50 €</button>
+          <button class="amount-btn" data-amount="100">100 €</button>
+          <button class="amount-btn" data-amount="250">250 €</button>
+          <button class="amount-btn" data-amount="500">500 €</button>
+        </div>
+        <label class="field-label" for="customAmount">Eigener Betrag</label>
+        <input type="number" class="custom-amount" id="customAmount" placeholder="Betrag in € eingeben" min="1">
+        <a href="#PAYONEER_LINK_HERE" target="_blank" rel="noopener" class="btn btn-primary btn-block">Jetzt spenden →</a>
+        <p class="disclaimer">Jede Transaktion ist verschlüsselt. Sie erhalten eine Bestätigung; Spendenquittung verfügbar, sofern rechtlich möglich.</p>
+        <div class="badges">
+          <span class="badge">PayPal</span>
+          <span class="badge">SEPA-Lastschrift</span>
+          <span class="badge">Kreditkarte</span>
+        </div>
       </div>
-      <input type="number" class="custom-amount" id="customAmount" placeholder="Eigenen Betrag eingeben (€)" min="1">
-      <!-- REPLACE href BELOW WITH REAL PAYONEER LINK -->
-      <a href="#PAYONEER_LINK_HERE" target="_blank" rel="noopener" class="btn btn-primary donate-cta">Jetzt über Payoneer spenden →</a>
-      <p class="disclaimer">Sie werden zu Payoneer weitergeleitet. Sichere und internationale Zahlung.</p>
-      <div class="badges">
-        <span class="badge">Payoneer</span>
-        <span class="badge">🔒 SSL</span>
-        <span class="badge">🇺🇦</span>
+      <div class="bank-card">
+        <h3>Banküberweisung</h3>
+        <p style="font-size:0.92rem;color:var(--mute);">Für direkte Überweisungen nutzen Sie bitte folgende Angaben:</p>
+        <dl>
+          <dt>Empfänger</dt><dd>Arbium e. V.</dd>
+          <dt>IBAN</dt><dd>DE00 0000 0000 0000 0000 00 <span class="legal-flag">Platzhalter</span></dd>
+          <dt>BIC</dt><dd>XXXXDEXX <span class="legal-flag">Platzhalter</span></dd>
+          <dt>Verwendungszweck</dt><dd>Arbium – Drohnen 104. TDF</dd>
+        </dl>
+        <p class="disclaimer">Bitte ersetzen Sie IBAN/BIC durch die geprüften Bankdaten der Organisation, bevor die Seite veröffentlicht wird.</p>
+        <div class="pay-methods">
+          <span>🔒 SSL</span>
+          <span>✅ Verifizierte Zahlungsabwicklung</span>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===================== FÜR UNTERNEHMEN ===================== -->
+<section class="business-section" id="unternehmen">
+  <div class="container">
+    <span class="eyebrow">Firmenpartnerschaften</span>
+    <h2>Für Unternehmen</h2>
+    <p class="section-sub">Übernehmen Sie eine Patenschaft, starten Sie ein Matching-Programm oder unterstützen Sie Teams gezielt. Wir liefern Berichte und Materialien für Ihre Kommunikation.</p>
+    <div class="business-grid">
+      <div class="business-card">
+        <h3>Projekt-Patenschaften</h3>
+        <p>Z. B. 10 Drohnen pro Quartal – mit direkter Zuordnung zu Ihrem Beitrag.</p>
+      </div>
+      <div class="business-card">
+        <h3>Matching-Programme</h3>
+        <p>Verdoppeln Sie die Spenden Ihrer Mitarbeitenden im Rahmen eines Matching-Programms.</p>
+      </div>
+      <div class="business-card">
+        <h3>Sichtbarkeit &amp; Berichte</h3>
+        <p>Logo auf der Partnerseite, regelmäßige Impact-Berichte, gemeinsames Statement.</p>
+      </div>
+    </div>
+    <a href="#kontakt" class="btn btn-primary">Partnerschaft anfragen</a>
+    <p class="disclaimer" style="margin-top:18px;">Wir liefern Verträge, Berichte und markenkonforme Materialien.</p>
   </div>
 </section>
 
 <!-- ===================== FAQ ===================== -->
-<section style="background:var(--bg-soft);">
+<section id="faq">
   <div class="container">
+    <span class="eyebrow">Fragen</span>
     <h2>Häufige Fragen</h2>
-    <div id="faqList" style="max-width:780px;">
+    <div id="faqList" style="max-width:780px;margin-top:24px;">
       <div class="faq-item">
-        <button class="faq-question">
-          Wie wird meine Spende verwendet?
-          <span class="plus">+</span>
+        <button class="faq-question" aria-expanded="false">
+          Wie stellen Sie sicher, dass die Drohnen ankommen?
+          <span class="plus" aria-hidden="true">+</span>
         </button>
         <div class="faq-answer">
-          <p>100% der gesammelten Mittel werden für den Kauf von Drohnen für die 102. Brigade verwendet.</p>
+          <p>Wir arbeiten mit verifizierten Logistikpartnern und dokumentieren Übergaben mit Berichten und Bildmaterial, sensibel und sicher.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">
-          Ist meine Zahlung sicher?
-          <span class="plus">+</span>
+        <button class="faq-question" aria-expanded="false">
+          Sind Spenden steuerlich absetzbar?
+          <span class="plus" aria-hidden="true">+</span>
         </button>
         <div class="faq-answer">
-          <p>Ja. Wir nutzen Payoneer — eine international anerkannte Zahlungsplattform mit SSL-Verschlüsselung.</p>
+          <p>Abhängig vom Land des Spenders. Wir stellen Belege aus; Details im Bestätigungs-E-Mail.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">
-          Wie kann ich Arbium kontaktieren?
-          <span class="plus">+</span>
+        <button class="faq-question" aria-expanded="false">
+          Welche Drohnen beschaffen Sie?
+          <span class="plus" aria-hidden="true">+</span>
         </button>
         <div class="faq-answer">
-          <p>Nutzen Sie unsere Social-Media-Kanäle, die im Footer verlinkt sind.</p>
+          <p>Primär robuste Aufklärungs- und FPV-Modelle mit geprüfter Ersatzteilversorgung. Auswahl richtet sich nach Einsatzbedarf der 104. Brigade.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wie berichten Sie über Wirkung?
+          <span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Quartalsweise Updates mit Zahlen, Fotos und konkreten Beispielen, ohne operative Risiken.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER / CONTACT ===================== -->
-<footer id="kontakt">
+<!-- ===================== ÜBER ARBIUM ===================== -->
+<section id="ueber-uns" style="background:var(--gray-light);">
+  <div class="container">
+    <span class="eyebrow">Über uns</span>
+    <h2>Arbium</h2>
+    <p class="section-sub">Arbium ist eine unabhängige Initiative für gezielte, transparente Unterstützung. Unser Schwerpunkt: Ausrüstung, die Leben schützt.</p>
+    <div class="values-grid">
+      <div class="value-pill">Transparenz</div>
+      <div class="value-pill">Verantwortung</div>
+      <div class="value-pill">Würde</div>
+      <div class="value-pill">Effizienz</div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="photo-ph team" role="img" aria-label="Platzhalter: Porträt von O. Hrabovska in Schwarz-Weiß">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/></svg>
+          <span>Porträt folgt</span>
+        </div>
+        <h3>O. Hrabovska</h3>
+        <span class="role">Leitung Beschaffung</span>
+        <p>Koordiniert verifizierte Lieferketten und Qualitätssicherung.</p>
+      </div>
+      <div class="team-card">
+        <div class="photo-ph team" role="img" aria-label="Platzhalter: Porträt von M. Kowal in Schwarz-Weiß">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/></svg>
+          <span>Porträt folgt</span>
+        </div>
+        <h3>M. Kowal</h3>
+        <span class="role">Berichte &amp; Transparenz</span>
+        <p>Erstellt Quartalsberichte und dokumentiert Übergaben.</p>
+      </div>
+      <div class="team-card">
+        <div class="photo-ph team" role="img" aria-label="Platzhalter: Porträt von D. Schreiber in Schwarz-Weiß">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/></svg>
+          <span>Porträt folgt</span>
+        </div>
+        <h3>D. Schreiber</h3>
+        <span class="role">Partnerschaften</span>
+        <p>Betreut Unternehmenskooperationen und Matching-Programme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section id="kontakt">
+  <div class="container">
+    <span class="eyebrow">Kontakt</span>
+    <h2>Schreiben Sie uns</h2>
+    <p class="section-sub">Wir antworten in der Regel innerhalb von zwei Werktagen.</p>
+    <div class="contact-grid">
+      <form class="contact-form" aria-label="Kontaktformular">
+        <div>
+          <label class="field-label" for="cName">Name</label>
+          <input type="text" id="cName" name="name" required>
+        </div>
+        <div>
+          <label class="field-label" for="cEmail">E-Mail</label>
+          <input type="email" id="cEmail" name="email" required>
+        </div>
+        <div>
+          <label class="field-label" for="cMessage">Nachricht</label>
+          <textarea id="cMessage" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Nachricht senden</button>
+      </form>
+      <div class="contact-info">
+        <p>E-Mail: <a href="mailto:kontakt@arbium.org">kontakt@arbium.org</a></p>
+        <p>Büro-Ort: Berlin, Deutschland</p>
+        <div class="social-row">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111418" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M12 13c0-1.5 1-2 2-2s2 .5 2 2v3"/></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111418" stroke-width="1.6" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IMPRESSUM / DATENSCHUTZ ===================== -->
+<section class="legal-section" id="impressum">
+  <div class="container">
+    <span class="eyebrow">Rechtliches</span>
+    <h2>Impressum &amp; Datenschutz</h2>
+    <p class="section-sub">Vorlage – bitte vor Veröffentlichung juristisch prüfen und vervollständigen.</p>
+
+    <div class="legal-block">
+      <h3>Impressum <span class="legal-flag">Juristisch prüfen</span></h3>
+      <p>Angaben gemäß § 5 TMG:</p>
+      <p>Arbium e. V. (Rechtsform prüfen) <span class="legal-flag">Platzhalter</span></p>
+      <p>Vertreten durch: [Name der vertretungsberechtigten Person] <span class="legal-flag">Platzhalter</span></p>
+      <p>Anschrift: [Straße, PLZ, Ort] <span class="legal-flag">Platzhalter</span></p>
+      <p>Kontakt: kontakt@arbium.org</p>
+      <p>Registereintrag: [Vereinsregister, Registernummer] <span class="legal-flag">Platzhalter</span></p>
+    </div>
+
+    <div class="legal-block" id="datenschutz">
+      <h3>Datenschutzerklärung <span class="legal-flag">Juristisch prüfen</span></h3>
+      <p>Verantwortlicher im Sinne der DSGVO: Arbium e. V., [Anschrift] <span class="legal-flag">Platzhalter</span>.</p>
+      <p>Zweck der Verarbeitung: Bearbeitung von Spenden und Kontaktanfragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und f DSGVO.</p>
+      <p>Speicherdauer: Daten werden nur so lange gespeichert, wie es für die Bearbeitung und gesetzliche Aufbewahrungspflichten erforderlich ist.</p>
+      <p>Zahlungsabwickler: [Name des Zahlungsdienstleisters, z. B. Payoneer/PayPal] verarbeitet Zahlungsdaten gemäß eigener Datenschutzerklärung. <span class="legal-flag">Platzhalter</span></p>
+      <p>Betroffenenrechte: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch – Kontakt: kontakt@arbium.org.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3>Spendenrichtlinie &amp; Nutzungsbedingungen <span class="legal-flag">Juristisch prüfen</span></h3>
+      <p>Spenden werden ausschließlich für die Beschaffung von Ausrüstung gemäß Projektbeschreibung verwendet. Detaillierte Bedingungen sind vor Veröffentlichung zu ergänzen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a href="#" class="logo light">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="17" cy="17" r="17" fill="#FFD700"/>
-            <path d="M17 6 L24 17 L17 28 L10 17 Z" fill="#ffffff"/>
-            <circle cx="17" cy="17" r="3" fill="#FFD700"/>
-          </svg>
-          Arbium
-        </a>
-        <p>Gemeinsam für den Frieden in der Ukraine</p>
+        <a href="#start" class="logo light">Arbium</a>
+        <p>Gezielte Hilfe. Transparente Wirkung.</p>
       </div>
       <div>
-        <h4>Folgen Sie uns</h4>
-        <div class="social-icons">
-          <a href="#" aria-label="Telegram">📡</a>
-          <a href="#" aria-label="Instagram">📷</a>
-        </div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#brigade">Unsere Brigade</a></li>
+          <li><a href="#wirkung">Wirkung &amp; Berichte</a></li>
+          <li><a href="#spenden">So spenden</a></li>
+          <li><a href="#unternehmen">Für Unternehmen</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Unsere Mission</h4>
-        <div class="footer-note">🇺🇦 <span>Unterstützt die 102. Brigade der Territorialverteidigung</span></div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#impressum">Impressum</a></li>
+          <li><a href="#datenschutz">Datenschutz</a></li>
+          <li><a href="#impressum">Nutzungsbedingungen</a></li>
+          <li><a href="#impressum">Spendenrichtlinie</a></li>
+          <li><a href="#" id="cookieLink">Cookie-Einstellungen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>kontakt@arbium.org</p>
+        <p>Fotos ohne sensible Informationen. Berichte werden sicherheitsbewusst erstellt.</p>
       </div>
     </div>
     <div class="footer-bottom">© 2026 Arbium. Alle Rechte vorbehalten.</div>
@@ -674,28 +1051,119 @@
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('open');
+    const open = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', open);
   });
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
     });
   });
 
-  // Donation amount selection
-  const amountBtns = document.querySelectorAll('.amount-btn');
-  const customAmount = document.getElementById('customAmount');
-  amountBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      amountBtns.forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      customAmount.value = '';
+  // Hero progress + animated counters (robust: guaranteed final value,
+  // triggered on scroll-into-view, respects reduced-motion)
+  const GOAL = 120000;
+  const RAISED = 42600;
+  const progressFill = document.getElementById('progressFill');
+  const progressAmount = document.getElementById('progressAmount');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setCount(el, value, suffix = '') {
+    el.textContent = value.toLocaleString('de-DE') + suffix;
+  }
+
+  function animateCount(el, target, duration, suffix = '') {
+    if (reduceMotion || typeof requestAnimationFrame !== 'function') {
+      setCount(el, target, suffix);
+      return;
+    }
+    let done = false;
+    const finish = () => { if (!done) { done = true; setCount(el, target, suffix); } };
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      setCount(el, Math.floor(p * target), suffix);
+      if (p < 1) requestAnimationFrame(tick); else done = true;
+    }
+    requestAnimationFrame(tick);
+    // Fallback: if rAF never ticks (background tab / headless), force final value
+    setTimeout(finish, duration + 400);
+  }
+
+  // Progress bar fills immediately (no rAF dependency); hero amount animates on load
+  progressFill.style.width = Math.min((RAISED / GOAL) * 100, 100) + '%';
+  animateCount(progressAmount, RAISED, 1400, ' €');
+
+  // KPI tiles animate when the impact section scrolls into view
+  let statsRun = false;
+  function runStats() {
+    if (statsRun) return;
+    statsRun = true;
+    animateCount(document.getElementById('statDrones'), 27, 1400);
+    animateCount(document.getElementById('statOperators'), 54, 1400);
+    animateCount(document.getElementById('statHours'), 320, 1400);
+  }
+  const impactSection = document.getElementById('wirkung');
+  if ('IntersectionObserver' in window && impactSection) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { runStats(); obs.disconnect(); }
+      });
+    }, { threshold: 0.25 });
+    io.observe(impactSection);
+    // Safety net: if the observer never fires (e.g. unsupported / non-painting tab),
+    // ensure the numbers are not left at zero
+    setTimeout(runStats, 4000);
+  } else {
+    runStats();
+  }
+
+  // Donation toggle (once / monthly) — purely presentational
+  const toggleOnce = document.getElementById('toggleOnce');
+  const toggleMonthly = document.getElementById('toggleMonthly');
+  const amountGrid = document.getElementById('amountGrid');
+  const onceAmounts = [25, 50, 100, 250, 500];
+  const monthlyAmounts = [10, 25, 50, 100];
+
+  function renderAmounts(amounts) {
+    amountGrid.innerHTML = '';
+    amounts.forEach(a => {
+      const btn = document.createElement('button');
+      btn.className = 'amount-btn';
+      btn.dataset.amount = a;
+      btn.textContent = a + ' €';
+      amountGrid.appendChild(btn);
     });
+    attachAmountHandlers();
+  }
+  toggleOnce.addEventListener('click', () => {
+    toggleOnce.classList.add('active');
+    toggleMonthly.classList.remove('active');
+    renderAmounts(onceAmounts);
   });
+  toggleMonthly.addEventListener('click', () => {
+    toggleMonthly.classList.add('active');
+    toggleOnce.classList.remove('active');
+    renderAmounts(monthlyAmounts);
+  });
+
+  // Donation amount selection
+  const customAmount = document.getElementById('customAmount');
+  function attachAmountHandlers() {
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        customAmount.value = '';
+      });
+    });
+  }
+  attachAmountHandlers();
   customAmount.addEventListener('input', () => {
-    amountBtns.forEach(b => b.classList.remove('selected'));
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
   });
 
   // FAQ accordion
@@ -707,12 +1175,20 @@
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('open');
         i.querySelector('.faq-answer').style.maxHeight = null;
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
       });
       if (!isOpen) {
         item.classList.add('open');
         answer.style.maxHeight = answer.scrollHeight + 'px';
+        question.setAttribute('aria-expanded', 'true');
       }
     });
+  });
+
+  // Contact form (no backend wired yet — prevents accidental navigation)
+  document.querySelector('.contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Vielen Dank für Ihre Nachricht. Ein Versand-Endpunkt muss noch angebunden werden.');
   });
 </script>
 
