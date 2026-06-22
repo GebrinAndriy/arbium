@@ -336,6 +336,37 @@
   }
   .brigade-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-lg);filter:grayscale(10%);}
   .hero-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-lg);}
+
+  /* ---------- Scroll-driven drone flight ---------- */
+  .drone-flight{
+    position:fixed;
+    top:0;left:0;
+    z-index:40;
+    width:150px;height:150px;
+    pointer-events:none;
+    opacity:.7;
+    will-change:transform;
+    transform:translate(-50%,-50%);
+    filter:drop-shadow(0 14px 22px rgba(8,12,20,.30));
+  }
+  .drone-flight .drone-bob{
+    display:block;width:100%;height:100%;
+    animation:droneBob 4.2s ease-in-out infinite;
+  }
+  .drone-flight .prop{
+    transform-box:fill-box;
+    transform-origin:center;
+    animation:propSpin .22s linear infinite;
+  }
+  .drone-flight .prop.rev{animation-direction:reverse;}
+  @keyframes propSpin{to{transform:rotate(360deg);}}
+  @keyframes droneBob{0%,100%{transform:translateY(-3px);}50%{transform:translateY(3px);}}
+  @media (max-width:760px){
+    .drone-flight{width:94px;height:94px;opacity:.5;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .drone-flight{display:none;}
+  }
   .brigade-grid p{color:var(--mute);margin-bottom:16px;font-size:1.02rem;}
   .fact-list{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
   .fact-list li{
@@ -577,6 +608,65 @@
 <body>
 
 <a href="#start" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ===================== SCROLL DRONE ===================== -->
+<div class="drone-flight" id="droneFlight" aria-hidden="true">
+  <svg class="drone-bob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="droneBody" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3b434f"/>
+        <stop offset="1" stop-color="#161b24"/>
+      </linearGradient>
+    </defs>
+    <!-- arms -->
+    <g stroke="#232b36" stroke-width="12" stroke-linecap="round">
+      <line x1="100" y1="100" x2="52" y2="52"/>
+      <line x1="100" y1="100" x2="148" y2="52"/>
+      <line x1="100" y1="100" x2="52" y2="148"/>
+      <line x1="100" y1="100" x2="148" y2="148"/>
+    </g>
+    <!-- propeller blur discs -->
+    <g fill="rgba(150,170,200,0.10)">
+      <circle cx="52" cy="52" r="33"/>
+      <circle cx="148" cy="52" r="33"/>
+      <circle cx="52" cy="148" r="33"/>
+      <circle cx="148" cy="148" r="33"/>
+    </g>
+    <!-- motors -->
+    <g fill="#0e1219">
+      <circle cx="52" cy="52" r="9"/>
+      <circle cx="148" cy="52" r="9"/>
+      <circle cx="52" cy="148" r="9"/>
+      <circle cx="148" cy="148" r="9"/>
+    </g>
+    <!-- spinning propellers -->
+    <g class="prop" fill="#39424f">
+      <ellipse cx="52" cy="52" rx="31" ry="5"/>
+      <ellipse cx="52" cy="52" rx="5" ry="31"/>
+    </g>
+    <g class="prop rev" fill="#39424f">
+      <ellipse cx="148" cy="52" rx="31" ry="5"/>
+      <ellipse cx="148" cy="52" rx="5" ry="31"/>
+    </g>
+    <g class="prop rev" fill="#39424f">
+      <ellipse cx="52" cy="148" rx="31" ry="5"/>
+      <ellipse cx="52" cy="148" rx="5" ry="31"/>
+    </g>
+    <g class="prop" fill="#39424f">
+      <ellipse cx="148" cy="148" rx="31" ry="5"/>
+      <ellipse cx="148" cy="148" rx="5" ry="31"/>
+    </g>
+    <!-- body -->
+    <rect x="73" y="73" width="54" height="54" rx="17" fill="url(#droneBody)" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+    <!-- camera / gimbal -->
+    <circle cx="100" cy="100" r="13" fill="#0c0f15"/>
+    <circle cx="100" cy="100" r="6.5" fill="#1F6FEB"/>
+    <circle cx="102" cy="98" r="2" fill="#bcd3ff"/>
+    <!-- status LEDs -->
+    <circle cx="82" cy="118" r="2.4" fill="#FFC300"/>
+    <circle cx="118" cy="118" r="2.4" fill="#2ead4b"/>
+  </svg>
+</div>
 
 <!-- ===================== NAVBAR ===================== -->
 <header class="navbar" id="navbar">
@@ -1170,6 +1260,48 @@
     e.preventDefault();
     alert('Vielen Dank für Ihre Nachricht. Ein Versand-Endpunkt muss noch angebunden werden.');
   });
+
+  // ---------- Scroll-driven drone flight ----------
+  (() => {
+    const drone = document.getElementById('droneFlight');
+    if (!drone) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof requestAnimationFrame !== 'function') return;
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+    // current (smoothed) and target state
+    let cur = { x: window.innerWidth * 0.8, y: window.innerHeight * 0.4, rot: 0 };
+
+    function scrollProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      return max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+    }
+
+    function frame(now) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const p = scrollProgress();
+      const t = now / 1000;
+
+      // Horizontal weave across the viewport (two crossings over the page) + idle drift
+      const tx = (0.5 + 0.42 * Math.sin(p * Math.PI * 2 - Math.PI / 2)) * vw + Math.sin(t * 0.55) * 22;
+      // Vertical roam (faster cadence) + gentle idle float
+      const ty = (0.34 + 0.28 * Math.sin(p * Math.PI * 3)) * vh + Math.cos(t * 0.8) * 16;
+      // Bank into the turns (derivative of the horizontal sine)
+      const rot = Math.cos(p * Math.PI * 2 - Math.PI / 2) * 13;
+
+      // Ease toward target for buttery motion
+      cur.x = lerp(cur.x, tx, 0.06);
+      cur.y = lerp(cur.y, ty, 0.06);
+      cur.rot = lerp(cur.rot, rot, 0.08);
+
+      drone.style.transform =
+        `translate(${cur.x}px, ${cur.y}px) translate(-50%, -50%) rotate(${cur.rot}deg)`;
+
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
 </script>
 
 </body>
